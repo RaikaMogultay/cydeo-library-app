@@ -17,7 +17,6 @@ Feature: Library app login feature
 
     Examples:
 
-
       | username            | password |
       | librarian1@library  | qU9mrvur |
       | librarian2@library  | uYrhHmmj |

@@ -58,5 +58,6 @@ public class Login_StepDefinitions {
     public void userEntersPassword(String arg0) {
         loginPage.passwordd.sendKeys(arg0);
         loginPage.submitButton.click();
+        Driver.getDriver().close();
     }
 }
