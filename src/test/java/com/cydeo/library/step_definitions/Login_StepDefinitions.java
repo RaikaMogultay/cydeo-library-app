@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.Map;
+
 public class Login_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
@@ -22,7 +24,7 @@ public class Login_StepDefinitions {
     }
     @When("user enters librarian password")
     public void user_enters_librarian_password() {
-        loginPage.password.sendKeys("qU9mrvur");
+        loginPage.passwordd.sendKeys("qU9mrvur");
 
     }
     @Then("user enters see the dashboard")
@@ -33,16 +35,28 @@ public class Login_StepDefinitions {
 
     @And("user enters student password")
     public void userEntersStudentPassword() {
-        loginPage.userName.sendKeys("student1@library");
+        loginPage.userName.sendKeys("student2@library");
     }
     @When("user enters student username")
     public void userEntersStudentUsername() {
-        loginPage.password.sendKeys("d5fv9BtX");
+        loginPage.passwordd.sendKeys("zyxa10vg");
 
     }
 
     @Then("user should see the dashboard")
     public void userShouldSeeTheDashboard() {
+        loginPage.submitButton.click();
+    }
+
+
+    @When("user enters librarian username{string}")
+    public void userEntersLibrarianUsername(String arg0) {
+        loginPage.userName.sendKeys(arg0);
+    }
+
+    @And("user enters password {string}")
+    public void userEntersPassword(String arg0) {
+        loginPage.passwordd.sendKeys(arg0);
         loginPage.submitButton.click();
     }
 }

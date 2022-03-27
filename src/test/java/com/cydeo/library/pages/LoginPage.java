@@ -14,8 +14,15 @@ public class LoginPage {
     public WebElement userName;
 
     @FindBy(xpath = "//input[@id='inputPassword']")
-    public WebElement password;
+    public WebElement passwordd;
 
     @FindBy(xpath = "//button[@class='btn btn-lg btn-primary btn-block']")
     public WebElement submitButton;
+
+    public void login(String username, String password){
+        userName.sendKeys(username);
+        passwordd.sendKeys(password);
+        submitButton.click();
+    }
+
 }
