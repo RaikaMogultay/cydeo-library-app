@@ -19,6 +19,7 @@ public class LoginPage {
     @FindBy(xpath = "//button[@class='btn btn-lg btn-primary btn-block']")
     public WebElement submitButton;
 
-
+    @FindBy(xpath = "//span[.='Test Student 1']")
+    public WebElement usersModule;
 
 }

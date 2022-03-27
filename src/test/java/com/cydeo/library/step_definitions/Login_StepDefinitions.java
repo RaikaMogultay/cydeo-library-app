@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.util.Map;
 
@@ -65,5 +66,13 @@ public class Login_StepDefinitions {
 
         loginPage.submitButton.click();
         Driver.getDriver().close();
+    }
+
+    @Then("there should be {string}")
+    public void thereShouldBe(String users) {
+
+        String expectedText = users;
+        String actualText = loginPage.usersModule.getText();
+        Assert.assertEquals(expectedText,actualText);
     }
 }
