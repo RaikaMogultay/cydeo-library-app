@@ -24,7 +24,7 @@ public class Login_StepDefinitions {
     }
     @When("user enters librarian password")
     public void user_enters_librarian_password() {
-        loginPage.passwordd.sendKeys("qU9mrvur");
+        loginPage.password.sendKeys("qU9mrvur");
 
     }
     @Then("user enters see the dashboard")
@@ -39,7 +39,7 @@ public class Login_StepDefinitions {
     }
     @When("user enters student username")
     public void userEntersStudentUsername() {
-        loginPage.passwordd.sendKeys("zyxa10vg");
+        loginPage.password.sendKeys("zyxa10vg");
 
     }
 
@@ -52,11 +52,17 @@ public class Login_StepDefinitions {
     @When("user enters librarian username{string}")
     public void userEntersLibrarianUsername(String arg0) {
         loginPage.userName.sendKeys(arg0);
+
     }
 
     @And("user enters password {string}")
     public void userEntersPassword(String arg0) {
-        loginPage.passwordd.sendKeys(arg0);
+        loginPage.password.sendKeys(arg0);
+    }
+
+    @Then("user enters see the dashboard and close")
+    public void userEntersSeeTheDashboardAndClose() {
+
         loginPage.submitButton.click();
         Driver.getDriver().close();
     }

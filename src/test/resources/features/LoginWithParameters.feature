@@ -7,13 +7,12 @@ Feature: Library app login feature
   Accounts are: librarian, student
 
   Background: For the scenarios in the feature file, user is expected to be on login page
-
+    Given user is on the library login page
 
   Scenario Outline: Login as librarian
-    Given user is on the library login page
     When user enters librarian username"<username>"
     And user enters password "<password>"
-    Then user enters see the dashboard
+    Then user enters see the dashboard and close
 
     Examples:
 
