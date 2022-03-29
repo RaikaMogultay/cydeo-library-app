@@ -9,7 +9,7 @@ Feature: Library app login feature
   Background: For the scenarios in the feature file, user is expected to be on login page
     Given user is on the library login page
 
-  Scenario Outline: Login as librarian
+  Scenario Outline: Login as librarian and Student
     When user enters librarian username"<username>"
     And user enters password "<password>"
     Then user enters see the dashboard and close
@@ -141,3 +141,8 @@ Feature: Library app login feature
       | student58@library | WS3rm9x  |
       | student59@library | cJaTyCRJ |
       | student60@library | AoSFw44Y |
+
+
+
+
+

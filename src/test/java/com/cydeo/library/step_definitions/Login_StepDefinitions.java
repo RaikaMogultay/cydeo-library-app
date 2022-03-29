@@ -1,18 +1,23 @@
 package com.cydeo.library.step_definitions;
 
+import com.cydeo.library.pages.LandingPage;
 import com.cydeo.library.pages.LoginPage;
+import com.cydeo.library.utilities.BrowserUtils;
 import com.cydeo.library.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Map;
 
 public class Login_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
+    LandingPage landingPage =new LandingPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
 
     @Given("user is on the library login page")
     public void user_is_on_the_library_login_page() {
@@ -65,14 +70,36 @@ public class Login_StepDefinitions {
     public void userEntersSeeTheDashboardAndClose() {
 
         loginPage.submitButton.click();
-        Driver.getDriver().close();
+        //Driver.getDriver().close();
     }
 
-    @Then("there should be {string}")
-    public void thereShouldBe(String users) {
 
-        String expectedText = users;
-        String actualText = loginPage.usersModule.getText();
-        Assert.assertEquals(expectedText,actualText);
+    @Given("I am on the login page")
+    public void iAmOnTheLoginPage() {
+
+        Driver.getDriver().get("https://library2.cydeo.com/login.html");
+
+
+    }
+
+    @When("I login using {string} and {string}")
+    public void iLoginUsingAnd(String arg0, String arg1) {
+        loginPage.userName.sendKeys(arg0);
+        loginPage.password.sendKeys(arg1);
+        loginPage.submitButton.click();
+
+    }
+
+    @Then("account holder name should be {string}")
+    public void accountHolderNameShouldBe(String arg0) {
+        BrowserUtils.waitForVisibility(loginPage.usersModule,5);
+        String actualAccountUsername = loginPage.usersModule.getText();
+
+        Assert.assertEquals("Account username is not as expected!"
+                , arg0, actualAccountUsername);
+
+        Driver.closeDriver();
+
+
     }
 }

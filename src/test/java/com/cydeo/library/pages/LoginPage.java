@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends PageBase{
 
     public LoginPage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -19,7 +19,7 @@ public class LoginPage {
     @FindBy(xpath = "//button[@class='btn btn-lg btn-primary btn-block']")
     public WebElement submitButton;
 
-    @FindBy(xpath = "//span[.='Test Student 1']")
+    @FindBy(xpath = "//img[@id='user_avatar']")
     public WebElement usersModule;
 
 }
